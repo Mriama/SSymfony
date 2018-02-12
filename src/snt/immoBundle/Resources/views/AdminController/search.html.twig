@@ -1,0 +1,39 @@
+ {% extends "::base.html.twig" %}
+ {% block body %}
+ <div class="container">
+
+ <a href="/SSymfony/web/app_dev.php/immobilier/user/list" class="" role="button">Lister</a>
+<br><br>
+<div class="container">
+ <form method="POST">
+ <input type="text" name="login" placeholder="search">
+ <input type="submit" name="submit" value="search">
+  </form>
+  </div>
+ <br><br>
+ 
+<table class="table table-bordered table-striped">
+<tr class="text-dark bg-info">
+<th>id</th>
+<th>Login</th>
+<th>Nom complet</th>
+<th>Date de naisssance</th>
+<th>Edit</th>
+<th>Delete</th>
+</tr>
+{%for em in users%}
+<tr>
+<th>{{em.id}}</th>
+<th>{{em.login}}</th>
+<th>{{em.nomcomplet}}</th>
+<th>{{em.datenais|date("d/m/Y")}}</th>
+<th><a href="{{path('edit',{'id':em.id})}}">Edit</a></th>
+<th><a href="{{path('suppr',{'id':em.id})}}">Delete</a></th>
+
+</tr>
+{%else%}
+<td colspan="6">aucun utilisateur</td>
+{%endfor%}
+ </table>
+</div>
+{% endblock %}

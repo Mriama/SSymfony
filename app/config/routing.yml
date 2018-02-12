@@ -1,0 +1,7 @@
+sntimmo:
+    resource: "@sntimmoBundle/Resources/config/routing.yml"
+    prefix:   /immobilier
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation

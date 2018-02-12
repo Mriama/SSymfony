@@ -1,0 +1,48 @@
+{% extends "::base.html.twig" %}
+
+
+{% block body %}
+<style>
+.container{
+    margin-top:50px;
+}
+</style>
+<div class="container">
+<h1>Liste des Utilisateur</h1>
+<table class="table table-bordered table-striped">
+<thead class="thead-dark">
+<th>id</th>
+<th>login</th>
+<th>nomcomplet</th>
+<th>datenais</th>
+<th>Editer</th>
+<th>Supprimer</th>
+<th>Etat</th>
+
+
+</thead>
+{%for user in users%}
+<tr>
+<td>{{user.id}}</td>
+<td>{{user.login}}</td>
+<td>{{user.nomcomplet}}</td>
+<td>{{user.datenais|date("d/m/Y")}}</td>
+<td><a href="{{path('edit',{'id':user.id})}}">Editer</a></td>
+<td><a href="{{path('suppr',{'id':user.id})}}">Supprimer</a></td>
+
+{% if user.etat == false %}
+
+            <td><a href="{{path('etat', {'id':user.id})}}">debloquer</a></td>
+            {% else %}
+
+            <td><a href="{{path('etat', {'id':user.id})}}">bloquer</a></td>
+            {% endif %}
+
+</tr>
+{%else%}
+<td colspan="6">Aucun utilisateur</td>
+
+{%endfor%}
+</table>
+</div>
+{% endblock %}

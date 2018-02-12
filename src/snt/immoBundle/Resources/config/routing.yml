@@ -1,0 +1,38 @@
+sntimmo_homepage:
+    path:     /
+    defaults: { _controller: sntimmoBundle:Default:index }
+
+
+add:
+    path:     /user/add
+    defaults: { _controller: sntimmoBundle:AdminController:add }
+
+list:
+    path:     /user/list
+    defaults: { _controller: sntimmoBundle:AdminController:list }
+
+
+edit:
+    path:     /user/edit/{id}
+    defaults: { _controller: sntimmoBundle:AdminController:edit }
+    requirements:
+        id: \d+
+suppr:
+    path:     /user/suppr/{id}
+    defaults: { _controller: sntimmoBundle:AdminController:suppr }
+    requirements:
+        id: \d+
+
+etat:
+    path:     /user/etat/{id}
+    defaults: { _controller: sntimmoBundle:AdminController:etat }
+    requirements:
+        id: \d+
+
+search:
+    path:    /user/search
+    defaults: { _controller: sntimmoBundle:AdminController:search}
+
+select:
+    path:    /user/select
+    defaults: { _controller: sntimmoBundle:AdminController:select}
